@@ -44,8 +44,4 @@ public class AdminService {
         return product;
     }
 
-    public Product DeleteProductService(DeletePrdocutDto deletePrdocutDto) {
-
-
-    }
 }

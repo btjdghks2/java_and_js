@@ -16,9 +16,5 @@ public class MainService {
     private final ProductRepository productRepository;
 
 
-    public List<MainPageProductListDto> MainPageProductListService() {
-        productRepository.findAll();
 
-        return
-    }
 }
