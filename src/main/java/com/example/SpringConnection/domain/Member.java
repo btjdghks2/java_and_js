@@ -1,11 +1,13 @@
 package com.example.SpringConnection.domain;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
 public class Member {
 
     @Id
@@ -14,6 +16,9 @@ public class Member {
 
     @Column
     private String memberid;
+
+    @Column
+    private String memberpasswd;
 
     @Column
     private int phonenumber;
