@@ -22,13 +22,13 @@ public class MainController {
 
 
     @GetMapping("/api/main")
-    public List<MainPageProductListDto> MainPageProductListControl() {
+    public ResponseEntity<List<MainPageProductListDto>> MainPageProductListControl() {
 
         List<Product> products = productRepository.findAll();
         List<MainPageProductListDto> result = products.stream()
                 .map(p -> new MainPageProductListDto(p))
                 .collect(Collectors.toList());
-        return result;
+        return ResponseEntity.ok(result);
 
 
     }

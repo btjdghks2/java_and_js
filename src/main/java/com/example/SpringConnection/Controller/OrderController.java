@@ -22,7 +22,7 @@ public class OrderController {
     private final OrderService orderService;
     private final OrderRepository orderRepository;
 
-    @GetMapping("/api/order/")
+    @GetMapping("/api/main/order/")
     public List<OrderListViewDto> OrderListControl() {
 
         List<Order> orders = orderRepository.findAll();
@@ -33,14 +33,14 @@ public class OrderController {
         return result;
     }
 
-    @PatchMapping("/api/order/edit")
+    @PatchMapping("/api/main/order/edit")
     public ResponseEntity<Order> EditOrderOrderControl(@RequestBody EditOrderDto editOrderDto) {
         Order order = orderService.EditOrderService(editOrderDto);
         return ResponseEntity.ok(order);
 
     }
 
-    @DeleteMapping("/api/order/{id}/delete")
+    @DeleteMapping("/api/main/order/{id}/delete")
     public ResponseEntity<Order> DeleteOrderControl(@PathVariable Long id) {
         orderRepository.deleteById(id);
         return ResponseEntity.noContent().build();

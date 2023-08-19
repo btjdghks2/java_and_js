@@ -32,7 +32,7 @@ public class AdminService {
 
     }
 
-    public Product EditProductService(UpdateProductDto updateProductDto) {
+    public Product EditProductService(id,UpdateProductDto updateProductDto) {
 
         Product product = new Product();
         product.setId(updateProductDto.getId());

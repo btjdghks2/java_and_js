@@ -1,5 +1,6 @@
 package com.example.SpringConnection.Dto;
 
+import com.example.SpringConnection.domain.Product;
 import jakarta.persistence.Column;
 
 import lombok.Data;
@@ -23,7 +24,7 @@ public class CreateProductDto {
     @Column
     private int count;
 
-    public CreateProductDto(Long id) {
+    public CreateProductDto(Product product) {
         this.id = id;
         this.productname = productname;
         this.productcontent = productcontent;
