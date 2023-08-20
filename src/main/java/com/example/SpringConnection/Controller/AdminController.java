@@ -1,7 +1,6 @@
 package com.example.SpringConnection.Controller;
 
 import com.example.SpringConnection.Dto.CreateProductDto;
-import com.example.SpringConnection.Dto.DeletePrdocutDto;
 import com.example.SpringConnection.Dto.UpdateProductDto;
 import com.example.SpringConnection.Repository.ProductRepository;
 import com.example.SpringConnection.Service.AdminService;
@@ -9,7 +8,6 @@ import com.example.SpringConnection.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.function.EntityResponse;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,7 +27,7 @@ public class AdminController {
     @PatchMapping("/api/admin/{id}/edit")
     public ResponseEntity<Product> EditProductControl(@PathVariable Long id,@RequestBody UpdateProductDto updateProductDto) {
 
-        Product product = adminService.EditProductService(updateProductDto);
+        Product product = adminService.EditProductService(id,updateProductDto);
 
         return ResponseEntity.ok(product);
     }

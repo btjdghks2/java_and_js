@@ -1,15 +1,12 @@
 package com.example.SpringConnection.Service;
 
 import com.example.SpringConnection.Dto.CreateProductDto;
-import com.example.SpringConnection.Dto.DeletePrdocutDto;
 import com.example.SpringConnection.Dto.UpdateProductDto;
 import com.example.SpringConnection.Repository.ProductRepository;
 import com.example.SpringConnection.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.PrimitiveIterator;
 
 @Service
 @RequiredArgsConstructor
@@ -32,16 +29,19 @@ public class AdminService {
 
     }
 
-    public Product EditProductService(id,UpdateProductDto updateProductDto) {
+    public Long EditProductService(Long id,UpdateProductDto updateProductDto) {
 
-        Product product = new Product();
-        product.setId(updateProductDto.getId());
-        product.setProductname(updateProductDto.getProductname());
-        product.setProductcontent(updateProductDto.getProductcontent());
-        product.setPrice(updateProductDto.getPrice());
-        product.setCount(updateProductDto.getCount());
-        productRepository.save(product);
-        return product;
+//        Product product = new Product();
+//        product.setId(updateProductDto.getId());
+//        product.setProductname(updateProductDto.getProductname());
+//        product.setProductcontent(updateProductDto.getProductcontent());
+//        product.setPrice(updateProductDto.getPrice());
+//        product.setCount(updateProductDto.getCount());
+//        productRepository.save(product);
+//        return product;
+        UpdateProductDto updateProductDto1 = productRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다" + id));
+
     }
 
 }

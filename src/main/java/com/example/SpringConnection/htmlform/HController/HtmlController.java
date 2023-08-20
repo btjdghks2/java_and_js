@@ -38,16 +38,26 @@ public class HtmlController {
         return new CreateProductDto(product);
     }
 
-    @PatchMapping("/admin/{id}/edit")
-    public UpdateProductDto AdminUpdateControl(@PathVariable Long id,UpdateProductDto updateProductDto) {
-        Product product = adminService.EditProductService(updateProductDto);
+    @PatchMapping("/admin/edit/{id}/")
+    public UpdateProductDto AdminUpdateControl(@PathVariable Long id, UpdateProductDto updateProductDto) {
+        Product product = adminService.EditProductService(id,updateProductDto);
         return new UpdateProductDto(product);
     }
 
-    @DeleteMapping("/admin/{id}/delete")
-    public DeleteProductDto AdminDeleteControl(@PathVariable Long id, DeletePrdocutDto deletePrdocutDto) {
-        productRepository.deleteById(id);
+    @DeleteMapping("/admin/delete")
+    public DeleteProductDto AdminDeleteControl(DeleteProductDto deleteProductDto) {
+        Product product = productRepository.deleteById(deleteProductDto);
+        return new DeleteProductDto(product);
 
+    }
+    // 상품 디테일 페이지
+    @GetMapping("/main/detail")
+    public DetailProductDto DetailControl(DetailProductDto detailProductDto) {
+        Product product = productRepository.findById(detailProductDto.getId()).orElseThrow();
+
+
+
+        return new DetailProductDto(product);
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.SpringConnection.Dto;
 
+import com.example.SpringConnection.domain.Product;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Getter
-@NoArgsConstructor
+
 public class DetailProductDto {
 
     @Column
@@ -24,7 +25,7 @@ public class DetailProductDto {
     @Column
     private int price;
 
-    public DetailProductDto(Long id, String productname, String productcontent, int price) {
+    public DetailProductDto(Product product) {
         this.id = id;
         this.productname = productname;
         this.productcontent = productcontent;

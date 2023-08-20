@@ -1,5 +1,6 @@
 package com.example.SpringConnection.Dto;
 
+import com.example.SpringConnection.domain.Product;
 import jakarta.persistence.Column;
 import lombok.Data;
 
@@ -21,7 +22,7 @@ public class DeleteProductDto {
     @Column
     private int count;
 
-    public DeleteProductDto(Long id, String productname, String productcontent, int price, int count) {
+    public DeleteProductDto(Product product) {
         this.id = id;
         this.productname = productname;
         this.productcontent = productcontent;
