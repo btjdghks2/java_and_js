@@ -55,7 +55,7 @@ public class HtmlController {
     // 상품 디테일 페이지
     @GetMapping("/main/detail/{id}")
     public DetailProductDto DetailControl(@PathVariable Long id, DetailProductDto detailProductDto) {
-        Product product = productRepository.findById(id).orElseThrow();
+        Product product = productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품입니다"+ id));
 
         return new DetailProductDto(product);
     }
@@ -77,7 +77,10 @@ public class HtmlController {
         return result;
     }
 
-
-
+    @DeleteMapping("/main/order/delete/{id}")
+    public DeleteOrderProductDto DeleteOrderProduct(@PathVariable Long id, DeleteOrderProductDto deleteOrderProductDto) {
+        Order order = orderRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품입니다" + id));
+        return new DeleteOrderProductDto(order);
+    }
 
 }
