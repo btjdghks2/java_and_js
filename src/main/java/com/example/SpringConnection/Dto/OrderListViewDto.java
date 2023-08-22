@@ -19,4 +19,10 @@ public class OrderListViewDto {
     public OrderListViewDto(Order o) {
         id = o.getId();
     }
+
+    public OrderListViewDto(Long id, Member member, Product product) {
+        this.id = id;
+        this.member = member;
+        this.product = product;
+    }
 }

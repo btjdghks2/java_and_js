@@ -1,20 +1,8 @@
 package com.example.SpringConnection.Dto;
 
-import com.example.SpringConnection.domain.Product;
 import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@Data
-@Getter
-
-public class DetailProductDto {
-
-
-
+public class AdminUpdateProductDtoPost {
     @Column
     private String productname;
 
@@ -24,10 +12,15 @@ public class DetailProductDto {
     @Column
     private int price;
 
-    public DetailProductDto(Product product) {
+    @Column
+    private int count;
+
+
+    public void update(String productname, String productcontent, int price, int count) {
 
         this.productname = productname;
         this.productcontent = productcontent;
         this.price = price;
+        this.count = count;
     }
 }

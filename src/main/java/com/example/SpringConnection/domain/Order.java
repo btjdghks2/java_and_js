@@ -1,6 +1,7 @@
 package com.example.SpringConnection.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,7 +28,10 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<Product> product = new ArrayList<>();
 
-    public Order(Long id) {
+    @Builder
+    public Order(Long id, Member member, List<Product> product) {
         this.id = id;
+        this.member = member;
+        this.product = product;
     }
 }

@@ -1,10 +1,7 @@
 package com.example.SpringConnection.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Setter
@@ -33,5 +30,19 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
 
+    @Builder
+    public Product(Long id, String productname, String productcontent, int price, int count) {
+        this.id = id;
+        this.productname = productname;
+        this.productcontent = productcontent;
+        this.price = price;
+        this.count = count;
+    }
 
+    public void AdminUpdateProductDto(String productname, String productcontent, int price, int count) {
+        this.productname = productname;
+        this.productcontent = productcontent;
+        this.price = price;
+        this.count = count;
+    }
 }
