@@ -24,13 +24,7 @@ public class AdminController {
 
     }
 
-    @PatchMapping("/api/admin/{id}/edit")
-    public ResponseEntity<Product> EditProductControl(@PathVariable Long id,@RequestBody UpdateProductDto updateProductDto) {
 
-        Product product = adminService.EditProductService(id,updateProductDto);
-
-        return ResponseEntity.ok(product);
-    }
 
     @DeleteMapping("/api/admin/{id}/delete")
     public ResponseEntity<Product> DeleteProductControl(@PathVariable Long id) {

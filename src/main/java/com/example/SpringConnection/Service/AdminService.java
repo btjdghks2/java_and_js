@@ -29,19 +29,6 @@ public class AdminService {
 
     }
 
-    public Long EditProductService(Long id,UpdateProductDto updateProductDto) {
 
-//        Product product = new Product();
-//        product.setId(updateProductDto.getId());
-//        product.setProductname(updateProductDto.getProductname());
-//        product.setProductcontent(updateProductDto.getProductcontent());
-//        product.setPrice(updateProductDto.getPrice());
-//        product.setCount(updateProductDto.getCount());
-//        productRepository.save(product);
-//        return product;
-        UpdateProductDto updateProductDto1 = productRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다" + id));
-
-    }
 
 }
